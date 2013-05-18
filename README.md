@@ -34,7 +34,7 @@ pros
 - will not create a new archive but only updates the sheetdata in the existing archive
 - workbook/sheet/row/cell settings are all kept during csv load
 - references to overwritten cells are updated
-- easy class for filling a prepared template with csv data, endless possibilities, example usage:
+- easy class for filling a prepared template with csv data, endless possibilities, example usage: 
     1 create a nice looking template with graphs,etc 
     2 make an empty extra sheet per existing sheet (the datasheet where the nice sheet will get it's data from), 
     3 make references on the existing sheet to the empty one (look at the empty one as if it is the csv) 

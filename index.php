@@ -3,19 +3,19 @@
 
 include("xlsx.php");
 
-$filetpl = "test.xlsx";
-$file = "testexport.xlsx";
+$filetplpath = "test.xlsx";
+$fileexportname = "testexport.xlsx";
 
-$path=tempnam('php://temp', 'php');
-copy($filetpl,$path);
+$tmppath=tempnam('php://temp', 'xl_');
+copy($filetplpath,$tmppath);
 
-$xl=new xlsx($path);
+$xl=new xlsx($tmppath);
 $xl->importcsv("csvdata","test.csv",",",'"','A','2');
 $xl->refreshPivotsOnOpen ();
 $xl->close();
 
-header('Content-Disposition: attachment;filename="'.$file.'"');
+header('Content-Disposition: attachment;filename="'.$fileexportname.'"');
 ob_clean();   
-readfile($path);
+readfile($tmppath);
 exit;
 ?>

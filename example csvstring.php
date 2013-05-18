@@ -5,7 +5,7 @@ include("xlsx.php");
 /*settings*/
 $filetplpath = "test.xlsx";
 $fileexportname = "testexport.xlsx";
-$csvpath1 = <<<EOT
+$csvstring1 = <<<EOT
 1388,110150,201101,8000
 1400,120150,201101,3750
 1412,142100,201101,2600
@@ -61,7 +61,7 @@ copy($filetplpath,$tmppath);
 
 /*open tempfile, import the csv file, and set pivots to refresh*/
 $xl=new xlsx($tmppath);
-$xl->importcsv($csvtosheet,$csvpath1,$csvdelimiter,$csvenclosure,$csvtocol,$csvtorow);
+$xl->importcsv($csvtosheet,$csvstring1,$csvdelimiter,$csvenclosure,$csvtocol,$csvtorow);
 $xl->refreshPivotsOnOpen ();
 $xl->close();
 
